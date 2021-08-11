@@ -1,8 +1,8 @@
-package com.example.app;
+package com.example.app.entity;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-class User {
+public class User {
 	private Integer id;
 	private String name;
 	private Integer age;

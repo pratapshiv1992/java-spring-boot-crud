@@ -1,3 +1,4 @@
+/*
 package com.example.app;
 
 import java.io.StringReader;
@@ -14,8 +15,14 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
+import com.example.app.entity.User;
+import org.springframework.stereotype.Component;
+
+
+@Component
 public class DbConnection {
-	private static final String ConnectionString = "jdbc:mysql://localhost:3306/xml_db?useSSL=false";
+	private static String  ConnectionString = "jdbc:mysql://localhost:3306/xml_db?useSSL=false";
+	
 	private static final String Username = "root";
 	private static final String Password = "";;
 	private static final String INSERT_XML_OBJECT = "INSERT INTO json_xml_objects" + "  (type, object) VALUES "
@@ -111,4 +118,4 @@ public class DbConnection {
 			}
 		}
 	}
-}
+}*/
