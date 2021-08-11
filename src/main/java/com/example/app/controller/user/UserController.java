@@ -5,7 +5,6 @@ import com.example.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import javax.xml.bind.JAXBException;
-import com.example.app.entity.User;
 
 
 @RestController
