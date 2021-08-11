@@ -24,12 +24,14 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public UserDTO save(UserDTO user) throws JAXBException {
-        String xmlDoc = XMLUtil.objectToXMLConverter(user);
-        UserEntity userEntity =  new UserEntity();
+    public UserDTO save(UserDTO userDto) throws JAXBException {
+        String xmlDoc = XMLUtil.objectToXMLConverter(userDto);
+        UserEntity userEntity = new UserEntity();
         userEntity.setXml(xmlDoc);
-        userRepo.save(userEntity);
-        return user;
+        UserEntity result = userRepo.save(userEntity);
+        userDto.setXml(result.getXml());
+        userDto.setId(result.getId());
+        return userDto;
     }
 
 }
