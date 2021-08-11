@@ -1,5 +1,6 @@
 package com.example.app.controller.user;
 
+import com.example.app.dto.UserDTO;
 import com.example.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,9 +24,8 @@ public class UserController {
     }
 
     @PostMapping("/user")
-    public User createUser(@RequestBody User user) throws JAXBException {
+    public UserDTO createUser(@RequestBody UserDTO user) throws JAXBException {
         return userService.save(user);
-        /*return  "scs";*/
     }
 
 }

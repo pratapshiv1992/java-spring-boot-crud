@@ -1,10 +1,10 @@
 package com.example.app.service;
-import com.example.app.entity.User;
+import com.example.app.dto.UserDTO;
 
 import javax.xml.bind.JAXBException;
 
 
 public interface UserService {
     String getUsers();
-    User save(User user) throws JAXBException;
+    UserDTO save(UserDTO user) throws JAXBException;
 }

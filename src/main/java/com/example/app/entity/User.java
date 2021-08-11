@@ -11,9 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @AllArgsConstructor
 public class User {
 	private Integer id;
-	private String name;
-	private Integer age;
-	private String email;
-	private String xml;
+	private String type;
+	private Integer object;
 }
 
