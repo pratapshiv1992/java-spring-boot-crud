@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.xml.bind.JAXBException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImp implements UserService {
@@ -19,8 +21,19 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public String getUsers() {
-        return "get user returned";
+    public List<UserDTO> getUsers() {
+        List<UserDTO> userDTOS = userRepo.findAll().stream().map(user -> {
+            try {
+                UserDTO userDTO = (UserDTO) XMLUtil.xmlToObjectConverter(user.getXml(), new UserDTO());
+                userDTO.setId(user.getId());
+                userDTO.setXml(user.getXml());
+                return userDTO;
+            } catch (JAXBException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }).collect(Collectors.toList());
+        return userDTOS;
     }
 
     @Override

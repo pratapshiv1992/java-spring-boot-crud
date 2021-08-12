@@ -5,6 +5,7 @@ import com.example.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import javax.xml.bind.JAXBException;
+import java.util.List;
 
 
 @RestController
@@ -18,7 +19,7 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    public String getUser() {
+    public List<UserDTO> getUser() {
         return userService.getUsers();
     }
 
